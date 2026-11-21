@@ -23,7 +23,12 @@ Local-first security tooling · vulnerability research · CTF
 
 ## Vulnerability research
 
-**2 original high-severity vulnerabilities accepted by CNVD** (2026.05, 2026.09) — found, verified and reported end to end, covering a telemedicine platform and a network storage device.
+**2 original high-severity vulnerabilities accepted by CNVD** (2026.05, 2026.09) — found, verified and reported end to end:
+
+| ID | Target | Type |
+| --- | --- | --- |
+| CNVD-2026-22542 | Beijing Shenzhou Shihan Technology · telemedicine service platform | SQL injection (web application, high) |
+| CNVD-2026-37664 | LG Electronics China · LG Network Storage | Command execution (network device, high) |
 
 **Vendor SRC / crowdsourced programs** — 20+ reports submitted through Vulbox, Butian and in-house SRC programs across mobility, social, healthcare and gaming; 11 confirmed. A few of them:
 
