@@ -8,8 +8,8 @@
 
 [![ReachScope](https://img.shields.io/github/v/release/tubibibo/reachscope-workbench?label=reachscope&color=2e7d5b&logo=python&logoColor=white)](https://github.com/tubibibo/reachscope-workbench)
 [![CI](https://github.com/tubibibo/reachscope-workbench/actions/workflows/ci.yml/badge.svg)](https://github.com/tubibibo/reachscope-workbench/actions/workflows/ci.yml)
-[![LRC Toolkit](https://img.shields.io/github/v/release/tubibibo/lrc-toolkit?label=lrc-toolkit&color=3178c6&logo=typescript&logoColor=white)](https://github.com/tubibibo/lrc-toolkit)
-[![CodeSheaf](https://img.shields.io/github/v/release/tubibibo/codesheaf?label=codesheaf&color=3178c6&logo=typescript&logoColor=white)](https://github.com/tubibibo/codesheaf)
+[![LRC Toolkit](https://img.shields.io/github/v/release/tubibibo/lrc-toolkit?label=lrc-toolkit&color=3178c6)](https://github.com/tubibibo/lrc-toolkit)
+[![CodeSheaf](https://img.shields.io/badge/codesheaf-v1.1.0-3178c6)](https://github.com/tubibibo/codesheaf)
 
 </div>
 
