@@ -2,9 +2,9 @@
 
 ### Zzup012 · YangoSec
 
-本地优先的安全工具 · 漏洞挖掘 · 竞赛
+Local-first security tooling · vulnerability research · CTF
 
-<sub>Local-first security tooling · vulnerability research · CTF</sub>
+<sub>No account, no cloud service, no telemetry.</sub>
 
 [![ReachScope](https://img.shields.io/github/v/release/tubibibo/reachscope-workbench?label=reachscope&color=2e7d5b&logo=python&logoColor=white)](https://github.com/tubibibo/reachscope-workbench)
 [![CI](https://github.com/tubibibo/reachscope-workbench/actions/workflows/ci.yml/badge.svg)](https://github.com/tubibibo/reachscope-workbench/actions/workflows/ci.yml)
@@ -15,42 +15,42 @@
 
 ---
 
-## 在做的事
+## What I'm building
 
-**[ReachScope Workbench](https://github.com/tubibibo/reachscope-workbench)** — 把一次发现从「采集 → 加固 → 复测 → 对比 → 关闭」串成闭环的本地工作台。Android / Web / 云配置 / 主机四个模块共用一套任务队列、证据结构与 SQLite 工作区；只监听回环，界面把「观察」「候选路径」「已确认漏洞」分开，不把启发式结果说成结论。
+**[ReachScope Workbench](https://github.com/tubibibo/reachscope-workbench)** — a local workbench that turns a finding into a closed loop: collect → harden → re-test → compare → close. Android, web, cloud config and host share one job queue, one evidence model and one SQLite workspace. It listens on loopback only, and the UI keeps "observations", "candidate paths" and "confirmed findings" apart — heuristics don't get promoted to conclusions.
 
-**[LRC Toolkit](https://github.com/tubibibo/lrc-toolkit)** / **[CodeSheaf](https://github.com/tubibibo/codesheaf)** — 两个 VS Code 扩展：一个做同步歌词的编辑与校验，一个把文件、选中范围和 import 依赖打成一包给模型。
+**[LRC Toolkit](https://github.com/tubibibo/lrc-toolkit)** / **[CodeSheaf](https://github.com/tubibibo/codesheaf)** — two VS Code extensions: one edits and checks synced lyrics, the other bundles files, selections and their import graph into a single context for a model.
 
-## 漏洞挖掘
+## Vulnerability research
 
-**CNVD 原创高危 × 2**（2026.05 / 2026.09）— 独立完成挖掘、验证与报送，2 个原创高危漏洞被国家信息安全漏洞共享平台收录，涉及某远程医疗综合服务平台与某网络存储设备。
+**2 original high-severity vulnerabilities accepted by CNVD** (2026.05, 2026.09) — found, verified and reported end to end, covering a telemedicine platform and a network storage device.
 
-**企业 SRC / 众测** — 在漏洞盒子、补天与厂商自建 SRC 提交 20+ 篇报告，覆盖出行、社交、医疗、游戏，已确认 11 个。其中：
+**Vendor SRC / crowdsourced programs** — 20+ reports submitted through Vulbox, Butian and in-house SRC programs across mobility, social, healthcare and gaming; 11 confirmed. A few of them:
 
-- **严重** · 登录回调校验不严，可外带他人微信授权码并接管账号（某出行平台）
-- **高危** · 按可枚举 `t_id` 批量读取他人真实手机号（某物流平台社区）
-- **高危** · 服务端信任请求体里的 `user_id`，可批量读取任意用户通讯录（某物流平台 App）
-- **高危** · SSO 回跳白名单含已失控域名，会话票据可被投递至第三方域（某短视频平台）
-- **中危** · `gourl` 参数匿名可控的 DOM 型 XSS（某视频平台 passport）
-- **中危** · 分号绕过 nginx 路径封锁，匿名调用 DWR 后端方法（某医疗平台）
+- **Critical** · weak callback validation lets a WeChat OAuth code be handed to a third party, taking over the account (mobility platform)
+- **High** · enumerable `t_id` reads other verified users' real phone numbers (logistics platform community)
+- **High** · the server trusts `user_id` in the request body, allowing bulk reads of any user's contacts (logistics platform app)
+- **High** · the SSO redirect allowlist includes a domain its owner had lost control of, so session tickets can be delivered there (short-video platform account center)
+- **Medium** · DOM XSS through an unauthenticated `gourl` parameter (video platform passport)
+- **Medium** · a semicolon bypasses nginx path rules, allowing anonymous DWR method calls (healthcare platform)
 
-## 竞赛
+## Competitions
 
-| 赛事 | 成绩 |
+| Event | Result |
 | --- | --- |
-| 第 23 届全国大学生信息安全与对抗技术竞赛（ISCC 2026）· 全国总决赛 | 二等奖 |
-| 河南省「御网杯」网络安全大赛（第十届）· 本科组 | 一等奖 |
-| 睿抗机器人开发者大赛（RAICOM 2026）· 福建赛区 | 二等奖 |
-| 软件系统安全赛 · 华东赛区 | 三等奖 |
+| ISCC 2026 · national finals | Second Prize |
+| "Yuwang Cup" Cybersecurity Competition (10th edition, Henan) | First Prize |
+| RAICOM 2026 · Fujian | Second Prize |
+| Software System Security Competition · East China | Third Prize |
 
-## 开源
+## Open source
 
-向 [frida](https://github.com/frida)（frida-gum / frida-core / frida-tools）和 [projectdiscovery/naabu](https://github.com/projectdiscovery/naabu) 提交的修复已合并，涉及 x86 重定位、模拟层加载回退、`frida-ps` 枚举中断等。另有 semgrep、impacket、APKiD 等项目的 6 个修复 PR 在审。
+Fixes merged into [Frida](https://github.com/frida) (frida-gum, frida-core, frida-tools) and [projectdiscovery/naabu](https://github.com/projectdiscovery/naabu): x86 relocation and Stalker edge cases, an agent load fallback, `frida-ps` enumeration breaking when icons fail to load, and an explicit `-rate` being overridden on connect-scan fallback. Six more PRs are in review at semgrep, impacket, APKiD and others.
 
-## 在意的事
+## What I care about
 
-证据要留得住，事后能指着说「这里」；没证实的就说没证实。下一步想在 ReachScope 上补一层红蓝验证：授权、非破坏，但能把影响真正证出来，证据跟结论一起走。做出来再写。
+Evidence that survives the conversation — something you can point at later and say "there". And saying **"not proven"** when it isn't. Next: a red/blue verification layer on top of ReachScope — authorized, non-destructive, but able to actually prove impact, with the evidence travelling alongside the conclusion. I'll write about it when it's real.
 
 ---
 
-<sub>想聊直接开 issue。中文优先。</sub>
+<sub>Open an issue if you want to talk.</sub>
